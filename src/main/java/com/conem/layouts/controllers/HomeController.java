@@ -26,8 +26,7 @@ class HomeController {
     	}else {
     		model.addAttribute("admin", "FALSE");
     	}
-    	//model.addAttribute("userEmail",AccountService.globalUser.getEmail());
-    	//System.out.println(AccountService.globalUser.getRole());
+    
         return principal != null ? "home/homeSignedIn" : "home/homeNotSignedIn";
     }
     
