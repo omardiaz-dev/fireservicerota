@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="#{view.index.title}">Welcome!</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link href="../../../resources/css/bootstrap.min.css" rel="stylesheet" media="screen" th:href="@{/resources/css/bootstrap.min.css}"/>
+    <link href="../../../resources/css/core.css" rel="stylesheet" media="screen" th:href="@{/resources/css/core.css}" />
+    
+       <!-- /* Conem style */-->
+    <link href="../../../resources/css/conem/bootstrap.css" rel="stylesheet" media="screen" th:href="@{/resources/css/conem/bootstrap.css}" />
+    <link href="../../../resources/css/conem/style.css" rel="stylesheet" media="screen" th:href="@{/resources/css/conem/style.css}" />
+    <link href="../../../resources/css/conem/colors.css" rel="stylesheet" media="screen" th:href="@{/resources/css/conem/colors.css}" />
+    <link href="../../../resources/css/conem/versions.css" rel="stylesheet" media="screen" th:href="@{/resources/css/conem/versions.css}" />
+    <link href="../../../resources/css/conem/responsive.css" rel="stylesheet" media="screen" th:href="@{/resources/css/conem/responsive.css}" />
+    <link href="../../../resources/css/conem/building.css" rel="stylesheet" media="screen" th:href="@{/resources/css/conem/building.css}" />
+    
+    
+    
+    <script src="../../../resources/js/jquery.min.js" th:src="@{/resources/js/jquery.min.js}"></script>
+    <script src="../../../resources/js/bootstrap.min.js" th:src="@{/resources/js/bootstrap.min.js}"></script>
+</head>
+<body class="building_version" data-spy="scroll" data-target=".header">
+	<div th:if="${admin}">
+		<div th:replace="~{fragments/header_staff :: header}">header</div>
+	</div>
+	<div th:unless="${admin}">
+  		<div th:replace="~{fragments/header_volunteer :: header}">header</div>
+	</div>	
+
+	<div id="contact" class="section wb">
+    	<div class="container">
+        	<p th:text="${messageTask}"></p>
+			<div class="row">
+				<div class="contact_form">	
+					<div class="col-lg-4 col-md-4">
+	 					<form id="contactform" class="row" action="/dashboardResume" name="contactform"  enctype="multipart/form-data">
+				        	<div class="contant-info">
+					           	<ul class="item-display-block">
+					               	<li>
+					                	<div class="info-content">
+											<button type="submit" id="submit2" class="btn btn-light btn-radius btn-brd grd1 btn-block" th:name="action" th:value="cancel_button">Go Back</button>
+											<button type="submit" id="search" class="btn btn-light btn-radius btn-brd grd1 btn-block" th:name="action" th:value="search_button">Check</button>
+						       				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+											    <label for="scheduleDate">Select a Date to check</label>
+												<input type="date" id="date" th:name="date"> 
+						    				</div>
+				                       	</div>
+									</li>
+								</ul>
+						</div>
+					</form>
+					
+				<div class="col-md-6">  
+					<div th:insert="task/layout :: content(~{ :: #task-list})">
+				    	<div id="task-list">
+				        <table class="table table-bordered table-striped" style="width:65%">
+				            <thead>
+				            <td th:each="cell : ${dashBoardHeader}">
+			              		  	<a  th:text="${cell}"></a>
+				             </td>
+				            </thead>
+				            <tbody>
+				            <tr th:if="${hourAvailability.empty}">
+				                <td colspan="2">Not Information</td>
+				            </tr>
+				            
+				         	<tr th:each="hourAvailability, stat : ${hourAvailabilitys}">
+				         		 <tr th:each="detail, inner: ${hourAvailabilitys2}">
+				         		  <tr th:each="row : ${detail}">
+				         		         <td th:text="${row.hour}"></td>
+				            	  </tr>
+				            	  </tr>
+			                </tr>
+			                
+			                  <div th:each="sb : ${week}">
+						        <td>
+						          <table>
+						            <tbody>
+						              <tr th:each="row,rowStat : ${sb}" th:style="${row.status} == '1' ? 'background: #C1F1EF' : 'background: #F2F6F6'">
+								                <td th:text="${row.hour}"></td>
+								                <td><img th:src="${row.status}=='1' ? @{/resources/images/green-check.png}: @{/resources/images/Red_X.png}"  alt="AdminLTE Logo" class="brand-image img-circle elevation-3" width="10" height="10"></td>
+								                <td th:text="${row.driverName}"></td>
+							                	<td th:text="${row.commanderName}"></td>
+							                	<td th:text="${row.backSeat1Name}"></td>
+							                	<td th:text="${row.backSeat2Name}"></td>
+						              </tr>
+						            </tbody>
+						          </table>
+						        </td>
+						      	</div>
+				            	</tbody>
+				        	</table>			         
+						</div>
+					</div>
+				</div>  
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+</body>
+</html>

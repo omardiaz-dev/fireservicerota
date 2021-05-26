@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="#{view.index.title}">Welcome!</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    
+    <link href="../../../resources/css/bootstrap.min.css" rel="stylesheet" media="screen" th:href="@{/resources/css/bootstrap.min.css}"/>
+    
+    <link href="../../../resources/css/hero-slider.css" rel="stylesheet" media="screen" th:href="@{/resources/css/hero-slider.css}"/>
+    <link href="../../../resources/css/owl-carousel.css" rel="stylesheet" media="screen" th:href="@{/resources/css/owl-carousel.css}"/>
+    
+    <link href="../../../resources/css/core.css" rel="stylesheet" media="screen" th:href="@{/resources/css/core.css}" />
+    
+       <!-- /* Conem style */-->
+    <link href="../../../resources/css/conem/bootstrap.css" rel="stylesheet" media="screen" th:href="@{/resources/css/conem/bootstrap.css}" />
+    <link href="../../../resources/css/conem/style.css" rel="stylesheet" media="screen" th:href="@{/resources/css/conem/style.css}" />
+    <link href="../../../resources/css/conem/colors.css" rel="stylesheet" media="screen" th:href="@{/resources/css/conem/colors.css}" />
+    <link href="../../../resources/css/conem/versions.css" rel="stylesheet" media="screen" th:href="@{/resources/css/conem/versions.css}" />
+    <link href="../../../resources/css/conem/responsive.css" rel="stylesheet" media="screen" th:href="@{/resources/css/conem/responsive.css}" />
+    <link href="../../../resources/css/conem/building.css" rel="stylesheet" media="screen" th:href="@{/resources/css/conem/building.css}" />
+    
+    <link href="../../../resources/css/conem/building.css" rel="stylesheet" media="screen" th:href="@{/resources/css/conem/carousel.css}" />
+    
+    <script src="../../../resources/js/jquery-1.11.2.min.js" th:src="@{/resources/js/jquery-1.11.2.min.js}"></script>
+    <script src="../../../resources/js/plugins.js" th:src="@{/resources/js/plugins.js}"></script>
+        <script src="../../../resources/js/main.js" th:src="@{/resources/js/main.js}"></script>
+    <script src="../../../resources/js/jquery.min.js" th:src="@{/resources/js/jquery.min.js}"></script>
+    <script src="../../../resources/js/bootstrap.min.js" th:src="@{/resources/js/bootstrap.min.js}"></script>
+    
+    
+    <!-- Angular -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    
+    <script type="text/javascript">
+    
+
+    $(document).ready(function() {
+        // navigation click actions 
+        $('.scroll-link').on('click', function(event){
+            event.preventDefault();
+            var sectionID = $(this).attr("data-id");
+            scrollToID('#' + sectionID, 750);
+        });
+        // scroll to top action
+        $('.scroll-top').on('click', function(event) {
+            event.preventDefault();
+            $('html, body').animate({scrollTop:0}, 'slow');         
+        });
+        // mobile nav toggle
+        $('#nav-toggle').on('click', function (event) {
+            event.preventDefault();
+            $('#main-nav').toggleClass("open");
+        });
+    });
+    // scroll function
+    function scrollToID(id, speed){
+        var offSet = 0;
+        var targetOffset = $(id).offset().top - offSet;
+        var mainNav = $('#main-nav');
+        $('html,body').animate({scrollTop:targetOffset}, speed);
+        if (mainNav.hasClass("open")) {
+            mainNav.css("height", "1px").removeClass("in").addClass("collapse");
+            mainNav.removeClass("open");
+        }
+    }
+    if (typeof console === "undefined") {
+        console = {
+            log: function() { }
+        };
+    }
+
+    
+    
+    </script>
+</head>
+<body class="building_version" data-spy="scroll" data-target=".header">
+	<div th:replace="~{fragments/header_staff :: header}">header</div>
+	<br></br>
+	
+	<section class="breakfast-menu">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1">
+                    <div class="breakfast-menu-content">
+                        <div class="row">
+                            <div class="col-md-5">
+                                <div class="left-image">
+                                    <img src="/resources/images/breakfast_menu.jpg" alt="Breakfast">
+                                </div>
+                            </div>
+                            <div class="col-md-7">
+                                <h2>Breakfast Menu</h2>
+                                
+                                
+	                                <div id="owl-breakfast" class="owl-carousel owl-theme">
+	                                    <div class="item col-md-12" th:each="menu : ${menus}">
+	                                        <div class="food-item">
+	                                            <img th:src="@{'data:image/jpeg;base64,'+${menu.generateBase64Image()}}" >
+	                                            <div class="price" th:text="${menu.price}"></div>
+	                                            <div class="text-content">
+	                                                <h4 th:text="${menu.title}"></h4>
+	                                                <p th:text="${menu.description}" align="justify"></p>
+	                                                <h6> <a href="#" th:href="@{/menu/{id}(id=${menu.idmenu})}" >Download</a></h6>
+	                                            </div>
+	                                        </div>
+	                                    </div>
+	                                </div>
+                                
+                                
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <section class="lunch-menu">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1">
+                    <div class="lunch-menu-content">
+                        <div class="row">
+                            <div class="col-md-7">
+                                <h2>Lunch Menu</h2>
+                                <div id="owl-lunch" class="owl-carousel owl-theme">
+                                    <div class="item col-md-12">
+                                        <div class="food-item">
+                                            <img src="/resources/images/lunch_item.jpg" alt="">
+                                            <div class="price">$6.50</div>
+                                            <div class="text-content">
+                                                <h4>Mumble Ditch Corn</h4>
+                                                <p>Dreamcatcher squid ennui cliche chicharros nes echo  small batch jean ditcher meal...</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item col-md-12">
+                                        <div class="food-item">
+                                            <img src="/resources/images/breakfast_item.jpg" alt="">
+                                            <div class="price">$11.75</div>
+                                            <div class="text-content">
+                                                <h4>Wayfare Lomo Core</h4>
+                                                <p>Dreamcatcher squid ennui cliche chicharros nes echo  small batch jean ditcher meal...</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item col-md-12">
+                                        <div class="food-item">
+                                            <img src="/resources/images/dinner_item.jpg" alt="">
+                                            <div class="price">$16.50</div>
+                                            <div class="text-content">
+                                                <h4>Taiyaki Gastro Tousled</h4>
+                                                <p>Dreamcatcher squid ennui cliche chicharros nes echo  small batch jean ditcher meal...</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <div class="left-image">
+                                    <img src="/resources/images/lunch_menu.jpg" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="dinner-menu">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1">
+                    <div class="dinner-menu-content">
+                        <div class="row">
+                            <div class="col-md-5">
+                                <div class="left-image">
+                                    <img src="/resources/images/dinner_menu.jpg" alt="">
+                                </div>
+                            </div>
+                            <div class="col-md-7">
+                                <h2>Dinner Menu</h2>
+                                <div id="owl-dinner" class="owl-carousel owl-theme">
+                                    <div class="item col-md-12">
+                                        <div class="food-item">
+                                            <img src="/resources/images/dinner_item.jpg" alt="">
+                                            <div class="price">$8.25</div>
+                                            <div class="text-content">
+                                                <h4>Meal Apples Almonds</h4>
+                                                <p>Dreamcatcher squid ennui cliche chicharros nes echo  small batch jean ditcher meal...</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item col-md-12">
+                                        <div class="food-item">
+                                            <img src="/resources/images/lunch_item.jpg" alt="">
+                                            <div class="price">$12.50</div>
+                                            <div class="text-content">
+                                                <h4>Ditch Corn Art</h4>
+                                                <p>Dreamcatcher squid ennui cliche chicharros nes echo  small batch jean ditcher meal...</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item col-md-12">
+                                        <div class="food-item">
+                                            <img src="/resources/images/breakfast_item.jpg" alt="">
+                                            <div class="price">$16.00</div>
+                                            <div class="text-content">
+                                                <h4>Kale Chips Art Party</h4>
+                                                <p>Dreamcatcher squid ennui cliche chicharros nes echo  small batch jean ditcher meal...</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <br></br>
+    
+     <section class="map">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div id="map">
+        <!-- How to change your own map point
+            1. Go to Google Maps
+            2. Click on your location point
+            3. Click "Share" and choose "Embed map" tab
+            4. Copy only URL and paste it within the src="" field below
+        -->
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.3327457478!2d-89.54783483002237!3d21.01936799401479!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjHCsDAxJzA5LjciTiA4OcKwMzInNDcuNSJX!5e0!3m2!1ses!2smx!4v1584471169980!5m2!1ses!2smx" width="100%" height="500" frameborder="0" style="border:0" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+		
+	
+	  
+	
+	      		 
+
+
+	    
+    
+    
+
+
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="#{view.index.title}">Welcome!</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link href="../../../resources/css/bootstrap.min.css" rel="stylesheet" media="screen" th:href="@{/resources/css/bootstrap.min.css}"/>
+    <link href="../../../resources/css/core.css" rel="stylesheet" media="screen" th:href="@{/resources/css/core.css}" />
+    
+       <!-- /* Conem style */-->
+    <link href="../../../resources/css/conem/bootstrap.css" rel="stylesheet" media="screen" th:href="@{/resources/css/conem/bootstrap.css}" />
+    <link href="../../../resources/css/conem/style.css" rel="stylesheet" media="screen" th:href="@{/resources/css/conem/style.css}" />
+    <link href="../../../resources/css/conem/colors.css" rel="stylesheet" media="screen" th:href="@{/resources/css/conem/colors.css}" />
+    <link href="../../../resources/css/conem/versions.css" rel="stylesheet" media="screen" th:href="@{/resources/css/conem/versions.css}" />
+    <link href="../../../resources/css/conem/responsive.css" rel="stylesheet" media="screen" th:href="@{/resources/css/conem/responsive.css}" />
+    <link href="../../../resources/css/conem/building.css" rel="stylesheet" media="screen" th:href="@{/resources/css/conem/building.css}" />
+    
+    <link href="../../../resources/css/conem/building.css" rel="stylesheet" media="screen" th:href="@{/resources/css/conem/carousel.css}" />
+    
+    <script src="../../../resources/js/jquery.min.js" th:src="@{/resources/js/jquery.min.js}"></script>
+    <script src="../../../resources/js/bootstrap.min.js" th:src="@{/resources/js/bootstrap.min.js}"></script>
+    
+    
+    <!-- Angular -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    
+    <script type="text/javascript">
+    
+    window.onload = function () {
+		//Se le da el attributo hiddenbyfilter a todas las filas de la tabla
+
+		let rows = document.querySelectorAll("#tablegeneral tr");
+		for (let i=0; i < rows.length; i++) rows[i].setAttribute("hiddenByFilter", 0);
+		
+		//Se asigna la funcion de filtrado al evento keyup 
+		let input_1 = document.querySelector("#user_name");
+		input_1.addEventListener("keyup", filter);
+
+		let input_2 = document.querySelector("#brand_name");
+		input_2.addEventListener("keyup", filter);
+	}
+
+	function filter () {
+		//this -> corresponde al input en el cual se da el evento keyup
+		//Valor del input
+		let searchValue = this.value;
+		var searchLenght = searchValue.length;
+	
+		//Listado de las filas de la tabla (tr)
+		let rows = document.querySelectorAll("#tablegeneral tr");
+		//Indicador de que columna debe filtrar el input
+		let filterForColumn = this.getAttribute("filterForColumn");
+	   
+
+		for (let i=2; i < rows.length; i++){
+			//Si la fila no tiene filtro o si el nuevo filtro tiene precedencia
+			if (rows[i].getAttribute("hiddenByFilter") == 0 ||filterForColumn <= rows[i].getAttribute("hiddenByFilter")){
+				//Se aplica filtro a la fila
+				rows[i].setAttribute("hiddenByFilter", filterForColumn);
+				//Se obtiene la celda (td)
+				let cell = rows[i].querySelector("td:nth-child("+filterForColumn+")");
+				//Si el texto de la celda es igual al buscado o si el valor buscado es vacio
+				if (cell.innerText.substring(0, searchLenght) == searchValue || searchValue === "") {
+					//Se quita el filtro de la fila
+					rows[i].setAttribute("hiddenByFilter", 0);
+				}
+			}
+		}		
+	}
+    
+    </script>
+   
+    <style type="text/css">
+ 	 
+	   /*Muestra solo los que tengan el atributo hiddenbyfilter en 0*/
+	   /*Lo puse aqui para mostrar exactamente el core de este approach*/
+	    tr:not([hiddenByFilter="0"]) {
+	    	display:none;
+	    }
+	</style>
+
+
+</head>
+<body class="building_version" data-spy="scroll" data-target=".header">
+	<div th:replace="~{fragments/header_staff :: header}">header</div>
+	<br></br>
+	
+	
+	
+	<!--/* Insert content fragment with content of the element with id = 'task-list' */-->
+	<div th:insert="task/layout :: content(~{ :: #task-list})">
+	    <div id="task-list">
+	        <table class="table table-bordered table-striped" id='tablegeneral'>
+	            <thead>
+	            <tr hiddenByFilter='0'>
+	                <td>ID</td>
+	                <td>First Name</td>
+	                <td>Last Name</td>
+	                <td>Email</td>
+	                <td>Phone</td>
+	                <td>Comments</td>
+	            </tr>
+	            </thead>
+	            <tbody>
+	            <tr hiddenByFilter='0'><td><input type='text' name='user_name' id='user_name' filterforcolumn='1' placeholder='ID'></td><td></td><td></td><td></td><td><input type='text' name='brand_name' id='brand_name' filterforcolumn='5' placeholder='Phone Number'></td><td></td></tr>
+	            <tr th:if="${messages.empty}">
+	                <td colspan="4">Sin Compañias</td>
+	            </tr>
+	            <tr th:each="message : ${messages}" hiddenByFilter='0'>
+	                <td th:text="${message.idMessage}">Id Message</td>
+	                <td>
+	                    <a href="#" th:href="@{/message/{id}(id=${message.idMessage})}" th:text="${message.firstName}">First Name</a>
+	                </td>
+	                <td th:text="${message.lastName}">Last Name</td>
+	                <td th:text="${message.eMail}">Email</td>
+	                <td th:text="${message.phone}">Phone</td>
+	                <td th:text="${message.comments}">Comments</td>
+	            </tr>
+	            </tbody>
+	        </table>
+	    </div>
+	</div>
+	
+	
+
+    
+    
+
+
+</body>
+</html>

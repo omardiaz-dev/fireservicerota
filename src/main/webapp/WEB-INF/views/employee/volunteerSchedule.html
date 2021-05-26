@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="#{view.index.title}">Welcome!</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link href="../../../resources/css/bootstrap.min.css" rel="stylesheet" media="screen" th:href="@{/resources/css/bootstrap.min.css}"/>
+    <link href="../../../resources/css/core.css" rel="stylesheet" media="screen" th:href="@{/resources/css/core.css}" />
+    
+       <!-- /* Conem style */-->
+    <link href="../../../resources/css/conem/bootstrap.css" rel="stylesheet" media="screen" th:href="@{/resources/css/conem/bootstrap.css}" />
+    <link href="../../../resources/css/conem/style.css" rel="stylesheet" media="screen" th:href="@{/resources/css/conem/style.css}" />
+    <link href="../../../resources/css/conem/colors.css" rel="stylesheet" media="screen" th:href="@{/resources/css/conem/colors.css}" />
+    <link href="../../../resources/css/conem/versions.css" rel="stylesheet" media="screen" th:href="@{/resources/css/conem/versions.css}" />
+    <link href="../../../resources/css/conem/responsive.css" rel="stylesheet" media="screen" th:href="@{/resources/css/conem/responsive.css}" />
+    <link href="../../../resources/css/conem/building.css" rel="stylesheet" media="screen" th:href="@{/resources/css/conem/building.css}" />
+    
+    
+    
+    <script src="../../../resources/js/jquery.min.js" th:src="@{/resources/js/jquery.min.js}"></script>
+    <script src="../../../resources/js/bootstrap.min.js" th:src="@{/resources/js/bootstrap.min.js}"></script>
+    <script src="../../../resources/js/validation.js" th:src="@{/resources/js/validation.js}"></script>
+    <script src="../../../resources/js/validation.js" th:src="@{/resources/js/listings.js}" ></script>
+       
+</head>
+<body class="building_version" data-spy="scroll" data-target=".header" onLoad="onLoadEmployeeDataList()">
+
+	<div th:if="${admin}">
+		<div th:replace="~{fragments/header_staff :: header}">header</div>
+	</div>
+	<div th:unless="${admin}">
+  		<div th:replace="~{fragments/header_volunteer :: header}">header</div>
+	</div>	
+	
+	<div id="contact" class="section wb">
+         <div class="container">
+            <div class="section-title row text-center">
+               <div class="col-md-8 col-md-offset-2">
+                  <h3>Inventario de Empleados</h3>
+                  <p  class="lead" th:text="${message}"></p>
+               </div>
+               <!-- end col -->
+            </div>
+            <!-- end title -->
+            <div class="row">
+               <form id="contactform" class="row" action="/addSchedule" name="contactform" method="post" enctype="multipart/form-data">
+               <fieldset class="row-fluid">
+               <div class="col-lg-4 col-md-4">
+                  <div class="contant-info">
+                     <ul class="item-display-block">
+                        <li>
+                           <div class="info-content">
+                             	<button type="submit" id="submit" class="btn btn-light btn-radius btn-brd grd1 btn-block" th:name="action" th:value="save_button">Guardar</button>
+                                <button type="submit" id="submit2" class="btn btn-light btn-radius btn-brd grd1 btn-block" th:name="action" th:value="cancel_button">Cancelar</button>
+                           </div>
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+               
+               <div class="col-md-8">
+                  <div class="contact_form">
+                     <div id="message"></div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                              <input type="text" name="branch_id" id="branch_id" class="form-control" placeholder="Station ID" value="1" readonly="true" data-toggle="tooltip" title="ID Sucursal">
+                           </div>
+                           <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                              <input type="text" name="branch_name" id="branch_name" class="form-control" placeholder="Station Name" value="Main Station" readonly="true" data-toggle="tooltip" title="Nombre Sucursal">
+                           </div>
+                           <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                              <input type="text" name="id" id="id" class="form-control" placeholder="Volunteer Id" th:value="${employee_id}" readonly="true" data-toggle="tooltip" title="ID">
+                           </div>
+                           <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                              <input type="text" name="name" id="name" class="form-control" placeholder="Name" th:value="${employee_name}" readonly="true"   maxlength="50" data-toggle="tooltip" title="Nombre(s)">
+                           </div>
+                           <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                              <input type="text" name="lastName" id="lastName" class="form-control" placeholder="Surname" th:value="${employee_last_name}" readonly="true"   maxlength="50" data-toggle="tooltip" title="Apellidos">
+                           </div>
+                           <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                              <input type="text" name="eMail" id="eMail" class="form-control" placeholder="Email" th:value="${employee_email}" readonly="true"   maxlength="50" data-toggle="tooltip" title="Email">
+                           </div>
+                           <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                           		<label for="scheduleDate">Date</label>
+ 						      	<input type="date" id="date" name="date"> 
+                           </div>
+                         
+                          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">	
+                           		<br></br>
+                           </div>
+                           
+                           <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">	
+                            	<label for="startTime">Start Time</label>
+                           		<input type="time" id="startTime" name="startTime" required>
+                           </div>
+                           
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">	
+                            	<label for="endTime">End Time</label>
+                           		<input type="time" id="endTime" name="endTime" required>
+                           </div>
+                         
+                           
+                  </div>
+               </div>
+             	</fieldset>
+             </form>
+            </div><!-- end row -->
+         </div><!-- end container -->
+      </div><!-- end section -->
+    
+    <script>
+		$(document).ready(function(){
+		  $('[data-toggle="tooltip"]').tooltip();   
+		});
+	</script>
+
+
+</body>
+</html>

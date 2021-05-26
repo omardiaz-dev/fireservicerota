@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="#{view.index.title}">Welcome!</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link href="../../../resources/css/bootstrap.min.css" rel="stylesheet" media="screen" th:href="@{/resources/css/bootstrap.min.css}"/>
+    <link href="../../../resources/css/core.css" rel="stylesheet" media="screen" th:href="@{/resources/css/core.css}" />
+    
+       <!-- /* Conem style */-->
+    <link href="../../../resources/css/conem/bootstrap.css" rel="stylesheet" media="screen" th:href="@{/resources/css/conem/bootstrap.css}" />
+    <link href="../../../resources/css/conem/style.css" rel="stylesheet" media="screen" th:href="@{/resources/css/conem/style.css}" />
+    <link href="../../../resources/css/conem/colors.css" rel="stylesheet" media="screen" th:href="@{/resources/css/conem/colors.css}" />
+    <link href="../../../resources/css/conem/versions.css" rel="stylesheet" media="screen" th:href="@{/resources/css/conem/versions.css}" />
+    <link href="../../../resources/css/conem/responsive.css" rel="stylesheet" media="screen" th:href="@{/resources/css/conem/responsive.css}" />
+    <link href="../../../resources/css/conem/building.css" rel="stylesheet" media="screen" th:href="@{/resources/css/conem/building.css}" />
+    
+    
+    
+    <script src="../../../resources/js/jquery.min.js" th:src="@{/resources/js/jquery.min.js}"></script>
+    <script src="../../../resources/js/bootstrap.min.js" th:src="@{/resources/js/bootstrap.min.js}"></script>
+</head>
+<body class="building_version" data-spy="scroll" data-target=".header">
+	
+	<div th:if="${admin}">
+		<div th:replace="~{fragments/header_staff :: header}">header</div>
+	</div>
+	<div th:unless="${admin}">
+  		<div th:replace="~{fragments/header_volunteer :: header}">header</div>
+	</div>	
+	
+	
+	<div id="contact" class="section wb">
+    	<div class="container">
+        	<p th:text="${messageTask}"></p>
+			<div class="row">
+				<div class="contact_form">	
+					<div class="col-lg-4 col-md-4">
+	 					<form id="contactform" class="row" action="/employeeList" name="contactform"  enctype="multipart/form-data">
+			                  <div class="contant-info">
+			                     <ul class="item-display-block">
+			                        <li>
+			                           <div class="info-content">
+											<button type="submit" value="SEND" id="submit" class="btn btn-light btn-radius btn-brd grd1 btn-block" th:name="action" th:value="employee_button">Agregar Empleado</button>
+											<button type="submit" id="submit2" class="btn btn-light btn-radius btn-brd grd1 btn-block" th:name="action" th:value="cancel_button">Cancelar</button>
+											<input type="hidden" name="branch_id" id="branch_id" class="form-control" placeholder="id de Sucursal" th:value="${branch_id}" readonly="true">
+		                    				<input type="hidden" name="branch_name" id="branch_name" class="form-control" placeholder="Nombre de Sucursal" th:value="${branch_name}" readonly="true">
+			                           </div>
+									</li>
+								</ul>
+							</div>
+						</form>
+					</div>
+					<div class="col-md-6"> 						
+						<div th:insert="task/layout :: content(~{ :: #task-list})">
+							<div id="task-list">
+								<table class="table table-bordered table-striped">
+						            <thead>
+						            <tr>
+						                
+						                <td>Id</td>
+						                <td>Nombre(s)</td>
+						                <td>Apellidos</td>
+						                <td>Puesto</td>
+						                <td>Tipo de Sangre</td>
+						                <td>Estatus</td>
+						                
+						            </tr>
+						            </thead>
+						            <tbody>
+						            <tr th:if="${employees.empty}">
+						                <td colspan="6">Sin Empleados</td>
+						            </tr>
+						            <tr th:each="employee : ${employees}">
+						                
+						                <td>
+						                    <a href="#" th:href="@{/employee/{id}(id=${employee.employeeId})}" th:text="${employee.employeeId}"></a>
+						                </td>
+						                
+						                <td th:text="${employee.employeeName}">Name</td>
+						                <td th:text="${employee.employeeLastName}">Last Name</td>
+						                <td th:text="${employee.employeeEmail}">EMail</td>
+						                <td th:text="${employee.employeeBloodType}">Blood Type</td>
+						                <td th:text="${employee.employeeStatus}">Status</td>
+						                
+						            </tr>
+						            </tbody>
+						        </table>      
+							</div>
+						</div>
+					</div>  
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

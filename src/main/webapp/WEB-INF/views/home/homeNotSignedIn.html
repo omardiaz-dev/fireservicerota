@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>FIRESERVICEROTA.COM</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  
+    
+    <!-- /* Conem style */-->
+    <!-- /* Please read note 1 in the developer_notes.txt */-->
+    <link href="../../../resources/css/conem/bootstrap.css" rel="stylesheet" media="screen" th:href="@{/resources/css/conem/bootstrap.css}" />
+
+ 	<!-- end Google Font -->
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,500,600,700,800,300' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Oswald:400,500,600,700,800,300' rel='stylesheet' type='text/css'>
+    <!-- owl carousel SLIDER -->
+    <link rel="stylesheet" href="../../../resources/css/conem/owl.carousel.css">
+	<!-- end awesome icons -->
+    <link href="../../../resources/css/conem/font-awesome.css" rel="stylesheet" media="screen" th:href="@{/resources/css/conem/font-awesome.css}" />
+	<!-- lightbox -->
+    <link href="../../../resources/css/conem/prettyPhoto.css" rel="stylesheet">
+    <!-- Animation Effect CSS -->
+    <link rel="stylesheet" href="../../../resources/css/conem/animation.css">
+
+	<!-- Main Stylesheet CSS -->
+    <link href="../../../resources/css/conem/style.css" rel="stylesheet" media="screen" th:href="@{/resources/css/conem/style.css}" />
+
+	<!-- SLIDER REVOLUTION 4.x CSS SETTINGS -->
+	<link rel="stylesheet" type="text/css" href="../../../resources/css/conem/settings.css" media="screen" />
+
+	
+    <link href="../../../resources/css/conem/colors.css" rel="stylesheet" media="screen" th:href="@{/resources/css/conem/colors.css}" />
+    <link href="../../../resources/css/conem/versions.css" rel="stylesheet" media="screen" th:href="@{/resources/css/conem/versions.css}" />
+    <link href="../../../resources/css/conem/responsive.css" rel="stylesheet" media="screen" th:href="@{/resources/css/conem/responsive.css}" />
+    <link href="../../../resources/css/conem/building.css" rel="stylesheet" media="screen" th:href="@{/resources/css/conem/building.css}" />
+    <link href="../../../resources/css/conem/font-awesome.min.css" rel="stylesheet" media="screen" th:href="@{/resources/css/conem/font-awesome.min.css}" />
+    <link href="../../../resources/css/conem/verticalmenu.css" rel="stylesheet" media="screen" th:href="@{/resources/css/conem/verticalmenu.css}" />
+ 
+	<link href="../../../resources/css/bootstrap.min.css" rel="stylesheet" media="screen" th:href="@{/resources/css/bootstrap.min.css}"/>
+    <link href="../../../resources/css/core.css" rel="stylesheet" media="screen" th:href="@{/resources/css/core.css}" />
+    <script src="../../../resources/js/jquery.min.js" th:src="@{/resources/js/jquery.min.js}"></script>
+    <script src="../../../resources/js/bootstrap.min.js" th:src="@{/resources/js/bootstrap.min.js}"></script>
+	
+    
+</head>
+<body class="building_version" data-spy="scroll" data-target=".header">
+<div th:replace="~{fragments/header :: header}">header</div>
+
+      	<!-- /* Added by ODD CONEM Project */ -->
+       <div id="home" class="parallax first-section" data-stellar-background-ratio="0.5" style="background-image:url('/resources/images/bomberos.jpg');">
+         <div class="container">
+            <div class="row">
+               <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 col-md-offset-2 text-center">
+                  <div class="big-tagline">
+                     <!-- /*<img class="border-line-img" src="/resources/images/sep-line-white.png" alt="" />*/-->
+                     <!--<img style="margin-bottom:40px;" class="border-line-img" src="/resources/images/sep-line-white.png" alt="" />-->
+                     <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                     <p><a data-scroll href="#services" class="btn btn-light btn-radius btn-brd">Services</a></p>
+                     <p><a id="signup" class="btn btn-light btn-radius btn-brd">Enter</a></p>
+                  </div>
+               </div>
+            </div><!-- end row -->
+         </div><!-- end container -->
+      </div><!-- end section -->			
+						
+						
+      
+      <div id="about" class="section wb">
+         <div class="container">
+            <div class="row">
+               <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                  <div class="message-box">
+                     <h2>US</h2>
+                     <h5>Learn what FireServiceRota can do for your service.</h5>
+                  </div><!-- end messagebox -->
+               </div><!-- end col -->
+               
+               <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                  <div class="message-box">
+                     <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
+                     <a href="#" class="read-more">Leer más</a>
+                  </div><!-- end messagebox -->
+               </div> <!-- end col -->
+            </div><!-- end row -->
+            
+            <div class="row text-center about-row">			
+                 <div class="col-md-4 col-sm-12 col-xs-12">
+                    <div class="row">
+                       <div class="service-widget">
+                          <div class="post-media wow fadeIn">
+                             <a href="/resources/images/capacitacion.jpg" data-rel="/resources/images/capacitacion.jpg" class="hoverbutton global-radius"><i class="flaticon-unlink"></i></a>
+                             <img src="/resources/images/capacitacion.jpg" alt="" class="img-responsive img-rounded">
+                          </div>
+                          <h3>Training</h3>
+                          <p>Aliquam sagittis ligula et sem lacinia, ut facilisis enim sollicitudin. Proin nisi est, convallis nec purus vitae, iaculis posuere sapien. Cum sociis natoque.</p>
+                       </div>	<!-- end service -->
+                    </div><!-- end row -->
+                 </div><!-- end col -->																										
+															
+                 <div class="col-md-4 col-sm-12 col-xs-12">
+                    <div class="row">
+                       <div class="service-widget">
+                          <div class="post-media wow fadeIn">
+                             <a href="/resources/images/inspeccionseguridad.jpg" data-rel="prettyPhoto[gal]" class="hoverbutton global-radius"><i class="flaticon-unlink"></i></a>
+                             <img src="/resources/images/inspeccionseguridad.jpg" alt="" class="img-responsive img-rounded">
+                          </div>
+                          <h3>Security Inspection</h3>
+                          <p>Duis at tellus at dui tincidunt scelerisque nec sed felis. Suspendisse id dolor sed leo rutrum euismod. Nullam vestibulum fermentum erat. It nam auctor. </p>
+                       </div><!-- end service -->
+                    </div><!-- end row -->
+                 </div><!-- end col -->		
+                											
+                 <div class="col-md-4 col-sm-12 col-xs-12">
+                    <div class="row">
+                       <div class="service-widget">
+                          <div class="post-media wow fadeIn">
+                             <a href="/resources/images/asesoria.jpg" data-rel="prettyPhoto[gal]" class="hoverbutton global-radius"><i class="flaticon-unlink"></i></a>
+                             <img src="/resources/images/asesoria.jpg" alt="" class="img-responsive img-rounded">
+                          </div>
+                          <h3>Legal Assistance</h3>
+                          <p>Etiam materials ut mollis tellus, vel posuere nulla. Etiam sit amet lacus vitae massa sodales aliquam at eget quam. Integer ultricies et magna quis.</p>
+                       </div><!-- end service -->
+                    </div><!-- end row -->
+                 </div><!-- end col -->				
+            </div><!-- end row text center -->		
+         </div><!-- end container -->	
+      </div><!-- end section wb-->	
+      
+						
+						
+      <div id="services" class="parallax section db parallax-off no-padding-bottom"  >
+         <div class="container">
+            <div class="row">
+               <div class="col-lg-5 col-md-6 col-sm-12 col-xs-12">
+                  <div class="message-box">
+                     <h2>Courses</h2>
+                     <h5>Etiam materials ut mollis tellus, vel posuere nulla. Etiam sit amet lacus vitae massa sodales aliquam at eget quam.</h5>
+                  </div><!-- end messagebox -->
+               </div>
+               <div class="col-lg-7 col-md-6 col-sm-12 col-xs-12">
+                  <div class="row">
+                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <div class="service-inform">
+                           <div class="icon-service">
+                              <img src="/resources/images/primeros-auxilios.jpg" alt="#" />
+                           </div>
+                           <div class="service-inform-text">
+                              <h3>First Help Training</h3>
+                              <p>Los primeros minutos son cruciales para salvar una vida</p>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <div class="service-inform">
+                           <div class="icon-service">
+                              <img src="/resources/images/seguridad_e_higiene.jpg" alt="#" />
+                           </div>
+                           <div class="service-inform-text">
+                              <h3>Security Training</h3>
+                              <p>Etiam materials ut mollis tellus, vel posuere nulla. Etiam sit amet lacus vitae massa sodales aliquam at eget quam.</p>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>						
+									
+									
+         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="row">
+               <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 serv" style="background-color:#222;">
+                  <div class="serv-blog">
+                     <img src="/resources/images/helmet.png" alt="#" />
+                  </div>
+                  <div class="serv-blog-cont">
+                     <h3>On-call stations</h3>
+                     <p>Etiam materials ut mollis tellus, vel posuere nulla. </p>
+                  </div>
+               </div>
+               <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 serv" style="background:#181818;">
+                  <div class="serv-blog">
+                     <img src="/resources/images/helmet.png" alt="#" />
+                  </div>
+                  <div class="serv-blog-cont">
+                     <h3>Full-time stations</h3>
+                     <p>Etiam materials ut mollis tellus, vel posuere nulla.</p>
+                  </div>
+               </div>
+               <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 serv" style="background:#222;">
+                  <div class="serv-blog">
+                     <img src="/resources/images/helmet.png" alt="#" />
+                  </div>
+                  <div class="serv-blog-cont">
+                     <h3>Mixed stations</h3>
+                     <p>Etiam materials ut mollis tellus, vel posuere nulla.</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>								
+						<!-- end section SERVICES-->
+						
+	<br></br>				
+						
+	<!-- Carrusel-->
+    <div id="scene">
+    <div id="left-zone">
+      <ul class="list">
+        <li class="item">
+          <input type="radio" id="radio_The garden strawberry (or simply strawberry /'str??b?ri/; Fragaria × ananassa) is a widely grown hybrid species of the genus Fragaria (collectively known as the strawberries)" name="basic_carousel" value="The garden strawberry (or simply strawberry /'str??b?ri/; Fragaria × ananassa) is a widely grown hybrid species of the genus Fragaria (collectively known as the strawberries)" checked="checked"/>
+          <label class="label_strawberry" for="radio_The garden strawberry (or simply strawberry /'str??b?ri/; Fragaria × ananassa) is a widely grown hybrid species of the genus Fragaria (collectively known as the strawberries)">Las Americas</label>
+          <div class="content content_strawberry"><span class="picto"></span>
+            <h1>Plaza Las Americas</h1>
+            <p>Uno de nuestros primeros clientes, con el cual tuvimos la oportunidad de etc etc etc</p>
+          </div>
+        </li>
+        <li class="item">
+          <input type="radio" id="radio_A banana is an edible fruit, botanically a berry, produced by several kinds of large herbaceous flowering plants in the genus Musa." name="basic_carousel" value="A banana is an edible fruit, botanically a berry, produced by several kinds of large herbaceous flowering plants in the genus Musa."/>
+          <label class="label_banana" for="radio_A banana is an edible fruit, botanically a berry, produced by several kinds of large herbaceous flowering plants in the genus Musa.">banana</label>
+          <div class="content content_banana"><span class="picto"></span>
+            <h1>Banana Clothes</h1>
+            <p>A banana is an edible fruit, botanically a berry, produced by several kinds of large herbaceous flowering plants in the genus Musa.</p>
+          </div>
+        </li>
+        <li class="item">
+          <input type="radio" id="radio_The apple tree (Malus domestica) is a deciduous tree in the rose family best known for its sweet, pomaceous fruit, the apple. It is cultivated worldwide as a fruit tree, and is the most widely grown species in the genus Malus." name="basic_carousel" value="The apple tree (Malus domestica) is a deciduous tree in the rose family best known for its sweet, pomaceous fruit, the apple. It is cultivated worldwide as a fruit tree, and is the most widely grown species in the genus Malus."/>
+          <label class="label_apple" for="radio_The apple tree (Malus domestica) is a deciduous tree in the rose family best known for its sweet, pomaceous fruit, the apple. It is cultivated worldwide as a fruit tree, and is the most widely grown species in the genus Malus.">apple</label>
+          <div class="content content_apple"><span class="picto"></span>
+            <h1>American Eagle</h1>
+            <p>The apple tree (Malus domestica) is a deciduous tree in the rose family best known for its sweet, pomaceous fruit, the apple. It is cultivated worldwide as a fruit tree, and is the most widely grown species in the genus Malus.</p>
+          </div>
+        </li>
+        <li class="item">
+          <input type="radio" id="radio_The orange (specifically, the sweet orange) is the fruit of the citrus species Citrus × sinensis in the family Rutaceae." name="basic_carousel" value="The orange (specifically, the sweet orange) is the fruit of the citrus species Citrus × sinensis in the family Rutaceae."/>
+          <label class="label_orange" for="radio_The orange (specifically, the sweet orange) is the fruit of the citrus species Citrus × sinensis in the family Rutaceae.">orange</label>
+          <div class="content content_orange"><span class="picto"></span>
+            <h1>Refaccionarias Cerma</h1>
+            <p>The orange (specifically, the sweet orange) is the fruit of the citrus species Citrus × sinensis in the family Rutaceae.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div id="middle-border"></div>
+    <div id="right-zone"></div>
+  </div>
+  
+   <!-- Carrusel-->
+   
+						
+      <div id="projects" class="section">
+         <div class="container">
+            <div class="row">
+               <div class="col-lg-5 col-md-6 col-sm-12 col-xs-12">
+                  <div class="message-box">
+                     <h2>Pictures</h2>
+                     <h5>Some of Our pictures.</h5>
+                  </div><!-- end messagebox -->
+               </div>
+               <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                  <div class="row">
+                     <div class="container gal-container">
+                        <div class="col-md-8 col-sm-12 co-xs-12 gal-item">
+                           <div class="box">
+                              <a href="#" data-toggle="modal" data-target="#1">
+                              <img src="/resources/images/seguridad-industrial.jpg" alt="#" />
+                              </a>
+                              <div class="modal fade" id="1" tabindex="-1" role="dialog">
+                                 <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                       <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                       <div class="modal-body">
+                                          <img src="/resources/images/seguridad-industrial.jpg" alt="#" />
+                                       </div>
+                                       <div class="col-md-12 description">
+                                          <h4>This is the first one on my Gallery</h4>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6 co-xs-12 gal-item">
+                           <div class="box">
+                              <a href="#" data-toggle="modal" data-target="#2">
+                              <img src="/resources/images/fotos2.jpg" alt="#" />
+                              </a>
+                              <div class="modal fade" id="2" tabindex="-1" role="dialog">
+                                 <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                       <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                       <div class="modal-body">
+                                          <img src="/resources/images/fotos2.jpg" alt="#" />
+                                       </div>
+                                       <div class="col-md-12 description">
+                                          <h4>This is the second one on my Gallery</h4>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        
+                        <div class="col-md-4 col-sm-6 co-xs-12 gal-item">
+                           <div class="box">
+                              <a href="#" data-toggle="modal" data-target="#3">
+                              <img src="/resources/images/fotos3.png" alt="#" />
+                              </a>
+                              <div class="modal fade" id="3" tabindex="-1" role="dialog">
+                                 <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                       <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                       <div class="modal-body">
+                                          <img src="/resources/images/fotos3.png" alt="#" />
+                                       </div>
+                                       <div class="col-md-12 description">
+                                          <h4>This is the third one on my Gallery</h4>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        
+                        
+                        <div class="col-md-4 col-sm-6 co-xs-12 gal-item">
+                           <div class="box">
+                              <a href="#" data-toggle="modal" data-target="#4">
+                              <img src="/resources/images/pro4.png" alt="#" />
+                              </a>
+                              <div class="modal fade" id="4" tabindex="-1" role="dialog">
+                                 <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                       <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                       <div class="modal-body">
+                                          <img src="/resources/images/pro4.png" alt="#" />
+                                       </div>
+                                       <div class="col-md-12 description">
+                                          <h4>This is the fourth one on my Gallery</h4>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6 co-xs-12 gal-item">
+                           <div class="box">
+                              <a href="#" data-toggle="modal" data-target="#5">
+                              <img src="/resources/images/pro3.png" alt="#" />
+                              </a>
+                              <div class="modal fade" id="5" tabindex="-1" role="dialog">
+                                 <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                       <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                       <div class="modal-body">
+                                          <img src="/resources/images/pro4.png" alt="#" />
+                                       </div>
+                                       <div class="col-md-12 description">
+                                          <h4>This is the fifth one on my Gallery</h4>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6 co-xs-12 gal-item">
+                           <div class="box">
+                              <a href="#" data-toggle="modal" data-target="#9">
+                              <img src="/resources/images/pro2.png" alt="#" />
+                              </a>
+                              <div class="modal fade" id="9" tabindex="-1" role="dialog">
+                                 <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                       <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                       <div class="modal-body">
+                                          <img src="/resources/images/firetruck.jpg" alt="#" />
+                                       </div>
+                                       <div class="col-md-12 description">
+                                          <h4>This is the sixth one on my Gallery</h4>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-md-8 col-sm-12 co-xs-12 gal-item">
+                           <div class="box">
+                              <a href="#" data-toggle="modal" data-target="#10">
+                              <img src="/resources/images/pro1.png" alt="#" />
+                              </a>
+                              <div class="modal fade" id="10" tabindex="-1" role="dialog">
+                                 <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                       <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                       <div class="modal-body">
+                                          <img src="/resources/images/pro1.png" alt="#" />
+                                       </div>
+                                       <div class="col-md-12 description">
+                                          <h4>This is the seventh one on my Gallery</h4>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- end section PROJECTS-->
+      
+	
+      <div id="contact" class="section wb">
+         <div class="container">
+            <div class="section-title row text-center">
+               <div class="col-md-8 col-md-offset-2">
+                  <h3>Contact us</h3>
+                  <p class="lead">Si tienes dudas o comentarios, por favor contactanos.</p>
+               </div>
+               <!-- end col -->
+            </div>
+            <!-- end title -->
+            <div class="row">
+               <div class="col-lg-4 col-md-4">
+                  <div class="contant-info">
+                     <ul class="item-display-block">
+                        <li>
+                           <div class="info-shape accent-color background fs-23">
+                              <div class="icon"><i class="fa fa-home"></i></div>
+                           </div>
+                           <div class="info-content">
+                              <h6 class="uppercase"> Direccion::</h6>
+                              <p> Calle 53</p>
+                           </div>
+                        </li>
+                        <li>
+                           <div class="info-shape accent-color background fs-23">
+                              <div class="icon"><i class="fa fa-volume-control-phone"></i></div>
+                           </div>
+                           <div class="info-content">
+                              <h6 class="uppercase"> Telefono</h6>
+                              <p> +212 386 5575<br>+212 386 5575</p>
+                           </div>
+                        </li>
+                        <li>
+                           <div class="info-shape accent-color background fs-23">
+                              <div class="icon"><i class="fa fa-envelope-o"></i></div>
+                           </div>
+                           <div class="info-content">
+                              <h6 class="uppercase"> Email:</h6>
+                              <p>omardiazdiaz@gmail.com</p>
+                           </div>
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+               <div class="col-md-8">
+                  <div class="contact_form">
+                     <div id="message"></div>
+                     <form id="contactform" class="row" action="/send" name="contactform" method="post">
+                        <fieldset class="row-fluid">
+                           <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                              <input type="text" name="first_name" id="first_name" class="form-control" placeholder="Nombre">
+                           </div>
+                           <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                              <input type="text" name="last_name" id="last_name" class="form-control" placeholder="Apellido Paterno">
+                           </div>
+                           <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                              <input type="email" name="email" id="email" class="form-control" placeholder="Email">
+                           </div>
+                           <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                              <input type="text" name="phone" id="phone" class="form-control" placeholder="Telefono de contacto">
+                           </div>
+                           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                              <label class="sr-only">Selecciona departamento</label>
+                              <select name="select_service" id="select_service" class="selectpicker form-control" data-style="btn-white">
+                                 <option value="12">Selecciona servicio</option>
+                                 <option value="Building Service">Servicio de seguridad</option>
+                                 <option value="Tover Design">Asesoria</option>
+                                 <option value="Others">Otros</option>
+                              </select>
+                           </div>
+                           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                              <textarea class="form-control" name="comments" id="comments" rows="6" placeholder="Comentanos.."></textarea>
+                           </div>
+                           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+                              <button type="submit" value="SEND" id="submit" class="btn btn-light btn-radius btn-brd grd1 btn-block">Enviar</button>
+                           </div>
+                        </fieldset>
+                     </form>
+                  </div>
+               </div>
+               <!-- end col -->
+            </div>
+            <!-- end row -->
+         </div>
+         <!-- end container -->
+      </div>
+      <!-- end section -->
+   
+   
+      <!-- footer -->
+      <footer id="footer">
+         <div id="footer-widgets" class="container style-1">
+            <div class="row">
+               <div class="col-md-4">
+                  <div class="widget widget_text">
+                     <h2 class="widget-title"><span>Nosotros</span></h2>
+                     <div class="textwidget">
+                        <a class="navbar-brand" href="index-building.html"><img src="/resources/images/logo-icon.png" alt="image"><span>En construccion</span></a>
+                        <p>Esto es solo un texto muy largo.</p>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-md-4">
+                  <div class="widget widget_links">
+                     <h2 class="widget-title"><span>Links</span></h2>
+                     <ul class="wprt-links clearfix col2">
+                        <li><a data-scroll="" href="#home">Principal</a></li>
+                        <li><a data-scroll="" href="#about">Nosotros</a></li>
+                        <li><a data-scroll="" href="#services">Servicios</a></li>
+                        <li><a data-scroll="" href="#projects">Mision</a></li>
+                        <li><a data-scroll="" href="#price">Planes</a></li>
+                        <li><a data-scroll="" href="#contact">Contactanos</a></li>
+					 </ul>
+                  </div>
+               </div>
+               <div class="col-md-4">
+                  <div class="widget widget_information">
+                     <h2 class="widget-title"><span>Contactanos</span></h2>
+                     <ul>
+                        <li class="address clearfix">
+                           <span class="hl">Direccion:</span>
+                           <span class="text">Dummy text.</span>
+                        </li>
+                        <li class="phone clearfix">
+                           <span class="hl">Telefono:</span> 
+                           <span class="text">+56 (0) 012 345 6789</span>
+                        </li>
+                        <li class="email clearfix">
+                           <span class="hl">E-mail:</span>
+                           <span class="text">conem@gmail.com</span>
+                        </li>
+                     </ul>
+                  </div>
+                  <div class="widget widget_socials">
+                     <div class="socials">
+                        <a target="_blank" href="#"><i class="fa fa-twitter"></i></a>
+                        <a target="_blank" href="#"><i class="fa fa-facebook"></i></a>
+                        <a target="_blank" href="#"><i class="fa fa-google-plus"></i></a>
+                        <a target="_blank" href="#"><i class="fa fa-pinterest"></i></a>
+                        <a target="_blank" href="#"><i class="fa fa-dribbble"></i></a>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div id="bottom" class="clearfix style-1">
+            <div class="container">
+               <div id="bottom-bar-inner" class="wprt-container">
+                  <div class="bottom-bar-inner-wrap">
+                     <div class="bottom-bar-content">
+                        <div id="copyright">Copyright Omar Diaz © 2021</div>
+                        <!-- /#copyright -->
+                     </div>
+                     <!-- /.bottom-bar-content -->
+                     <div class="bottom-bar-menu pull-right">
+                        <ul class="bottom-nav">
+                           <li><a href="#/">Story</a></li>
+                           <li><a href="#/">FAQ</a></li>
+                           <li><a href="#/">Future events</a></li>
+                        </ul>
+                     </div>
+                     <!-- /.bottom-bar-menu -->
+                  </div>
+               </div>
+            </div>
+         </div>
+      </footer>
+      <!-- end footer -->
+      <a href="#home" data-scroll class="dmtop global-radius"><i class="fa fa-angle-up"></i></a>
+      
+      
+
+      <div th:insert="~{fragments/footer :: footer}">&copy;</div>
+
+
+<script th:inline="javascript" type="text/javascript">
+/* Fill in modal with content loaded with Ajax */
+$(document).ready(function () {
+    $('#signup').on('click', function (e) {
+        $("#myModal").modal();
+        $("#myModalBody").text("");
+        $.ajax({
+            url: "signup",
+            cache: false
+        }).done(function (html) {
+            $("#myModalBody").append(html);
+        });
+    })
+});
+
+
+$(document).ready(function () {
+    $('#idmenu').on('click', function (e) {
+        $("#myModal").modal();
+        $("#myModalBody").text("");
+        $.ajax({
+            url: "signup",
+            cache: false
+        }).done(function (html) {
+            $("#myModalBody").append(html);
+        });
+    })
+});
+</script>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Ingresar</h4>
+            </div>
+            <div class="modal-body" id="myModalBody">Lorem ipsum</div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+</body>
+</html>
