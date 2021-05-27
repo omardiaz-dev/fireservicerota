@@ -35,6 +35,7 @@ public class SettingsController {
 	}
 	
 	
+	
 	@RequestMapping(value = "settings", method = RequestMethod.POST)
 	String setSettings(Model model, @RequestParam(defaultValue = "") String dashboardDays) {
 		model.addAttribute("messageOmar", "Omar Diaz");
