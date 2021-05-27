@@ -6,13 +6,22 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
 import com.conem.layouts.account.AccountService;
+import com.conem.layouts.settings.SettingsService;
 
 import java.security.Principal;
 
 @Controller
 class HomeController {
 
-    @ModelAttribute("module")
+	
+	SettingsService settingsService;
+	
+    public HomeController(SettingsService settingsService) {
+		super();
+		this.settingsService = settingsService;
+	}
+
+	@ModelAttribute("module")
     String module() {
         return "home";
     }
@@ -30,6 +39,9 @@ class HomeController {
         return principal != null ? "home/homeSignedIn" : "home/homeNotSignedIn";
     }
     
+    
+    
+  
     
    
     

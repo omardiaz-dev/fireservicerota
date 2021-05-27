@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="#{view.index.title}">Welcome!</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link href="../../../resources/css/bootstrap.min.css" rel="stylesheet" media="screen" th:href="@{/resources/css/bootstrap.min.css}"/>
+    <link href="../../../resources/css/core.css" rel="stylesheet" media="screen" th:href="@{/resources/css/core.css}" />
+    
+       <!-- /* Conem style */-->
+    <link href="../../../resources/css/conem/bootstrap.css" rel="stylesheet" media="screen" th:href="@{/resources/css/conem/bootstrap.css}" />
+    <link href="../../../resources/css/conem/style.css" rel="stylesheet" media="screen" th:href="@{/resources/css/conem/style.css}" />
+    <link href="../../../resources/css/conem/colors.css" rel="stylesheet" media="screen" th:href="@{/resources/css/conem/colors.css}" />
+    <link href="../../../resources/css/conem/versions.css" rel="stylesheet" media="screen" th:href="@{/resources/css/conem/versions.css}" />
+    <link href="../../../resources/css/conem/responsive.css" rel="stylesheet" media="screen" th:href="@{/resources/css/conem/responsive.css}" />
+    <link href="../../../resources/css/conem/building.css" rel="stylesheet" media="screen" th:href="@{/resources/css/conem/building.css}" />
+    
+    
+    
+    <script src="../../../resources/js/jquery.min.js" th:src="@{/resources/js/jquery.min.js}"></script>
+    <script src="../../../resources/js/bootstrap.min.js" th:src="@{/resources/js/bootstrap.min.js}"></script>
+    <script src="../../../resources/js/validation.js" th:src="@{/resources/js/validation.js}"></script>
+    <script src="../../../resources/js/validation.js" th:src="@{/resources/js/listings.js}" ></script>
+       
+</head>
+<body class="building_version" data-spy="scroll" data-target=".header" onLoad="onLoadEmployeeDataList()">
+
+	<div th:if="${admin}">
+		<div th:replace="~{fragments/header_staff :: header}">header</div>
+	</div>
+	<div th:unless="${admin}">
+  		<div th:replace="~{fragments/header_volunteer :: header}">header</div>
+	</div>	
+	
+	<div id="contact" class="section wb">
+         <div class="container">
+            <div class="section-title row text-center">
+               <div class="col-md-8 col-md-offset-2">
+                  <h3>Settings</h3>
+                  <p  class="lead" th:text="${message}"></p>
+               </div>
+               <!-- end col -->
+            </div>
+            <!-- end title -->
+            <div class="row">
+               <form id="contactform" class="row" action="/settings" name="contactform" method="post" enctype="multipart/form-data">
+               <fieldset class="row-fluid">
+               <div class="col-lg-4 col-md-4">
+                  <div class="contant-info">
+                     <ul class="item-display-block">
+                        <li>
+                           <div class="info-content">
+                             	<button type="submit" id="submit" class="btn btn-light btn-radius btn-brd grd1 btn-block" th:name="action" th:value="save_button">Guardar</button>
+                                <button type="submit" id="submit2" class="btn btn-light btn-radius btn-brd grd1 btn-block" th:name="action" th:value="cancel_button">Cancelar</button>
+                           </div>
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+               
+               <div class="col-md-8">
+                  <div class="contact_form">
+                     <div id="message"></div>
+                       
+                           <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                              <input type="text" name="dashboardDays" id="dashboardDays" class="form-control" placeholder="Dashboard days" th:value="${dashboardDays}"   maxlength="1" data-toggle="tooltip" title="Dashboard days to show">
+                           </div>
+                           
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                              <input type="text" name="dashboardStyle" id="dashboardStyle" class="form-control" placeholder="Dashboard Style(This should be a list)"    maxlength="1" data-toggle="tooltip" title="Dashboard Style">
+                           </div>
+                        
+                           <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                              <input type="text" name="language" id="language" class="form-control" placeholder="Language (This should be a list)" maxlength="1" data-toggle="tooltip" title="Application language">
+                           </div>
+                           
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                              <input type="text" name="etc" id="etc" class="form-control" placeholder="More settings"    maxlength="1" data-toggle="tooltip" title="etcetera">
+                           </div>
+                         
+                  </div>
+               </div>
+             	</fieldset>
+             </form>
+            </div><!-- end row -->
+         </div><!-- end container -->
+      </div><!-- end section -->
+    
+    <script>
+		$(document).ready(function(){
+		  $('[data-toggle="tooltip"]').tooltip();   
+		});
+	</script>
+
+
+</body>
+</html>

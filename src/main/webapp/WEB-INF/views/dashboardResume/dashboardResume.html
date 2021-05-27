@@ -18,6 +18,18 @@
     
     <script src="../../../resources/js/jquery.min.js" th:src="@{/resources/js/jquery.min.js}"></script>
     <script src="../../../resources/js/bootstrap.min.js" th:src="@{/resources/js/bootstrap.min.js}"></script>
+    
+    
+	<style>
+		body {background-color: powderblue;}
+		h1   {color: blue;}
+		table{ }
+
+		th, td {
+    	  width: 100px;
+  		 }
+	</style>
+
 </head>
 <body class="building_version" data-spy="scroll" data-target=".header">
 	<div th:if="${admin}">
@@ -53,7 +65,7 @@
 				<div class="col-md-6">  
 					<div th:insert="task/layout :: content(~{ :: #task-list})">
 				    	<div id="task-list">
-				        <table class="table table-bordered table-striped" style="width:65%">
+				        <table class="table table-bordered table-striped">
 				            <thead>
 				            <td th:each="cell : ${dashBoardHeader}">
 			              		  	<a  th:text="${cell}"></a>
@@ -64,25 +76,25 @@
 				                <td colspan="2">Not Information</td>
 				            </tr>
 				            
-				         	<tr th:each="hourAvailability, stat : ${hourAvailabilitys}">
+				         	<tr th:each="hourAvailability, stat : ${hourAvailabilitys}" >
 				         		 <tr th:each="detail, inner: ${hourAvailabilitys2}">
 				         		  <tr th:each="row : ${detail}">
-				         		         <td th:text="${row.hour}"></td>
+				         		         <td th:text="${row.hour}" width='300px'></td>
 				            	  </tr>
 				            	  </tr>
-			                </tr>
+ 			                </tr>
 			                
 			                  <div th:each="sb : ${week}">
-						        <td>
+						        <td >
 						          <table>
 						            <tbody>
-						              <tr th:each="row,rowStat : ${sb}" th:style="${row.status} == '1' ? 'background: #C1F1EF' : 'background: #F2F6F6'">
+						              <tr th:each="row,rowStat : ${sb}" height='100px'  th:style="${row.status} == '1' ? 'background: #C1F1EF' : 'background: #F2F6F6'">
 								                <td th:text="${row.hour}"></td>
 								                <td><img th:src="${row.status}=='1' ? @{/resources/images/green-check.png}: @{/resources/images/Red_X.png}"  alt="AdminLTE Logo" class="brand-image img-circle elevation-3" width="10" height="10"></td>
 								                <td th:text="${row.driverName}"></td>
 							                	<td th:text="${row.commanderName}"></td>
 							                	<td th:text="${row.backSeat1Name}"></td>
-							                	<td th:text="${row.backSeat2Name}"></td>
+							                	<td width='300px' th:text="${row.backSeat2Name}"></td>
 						              </tr>
 						            </tbody>
 						          </table>
